@@ -40,7 +40,9 @@
       <tbody>
         <tr v-for="(user, index) in filteredUsers" :key="index">
           <td data-label="Full name">
-            <NuxtLink :to="{name: 'users-id', params: {id: index, user: user}}">
+            <NuxtLink
+              :to="{ name: 'users-id', params: { id: index, user: user } }"
+            >
               {{ user.name.title }} {{ user.name.first }}
               {{ user.name.last }}</NuxtLink
             >
@@ -55,8 +57,7 @@
 </template>
 
 <script>
-import { getUsers } from '@/core/getUsers.js'
-import { addUser } from '@/core/addUser.js'
+import { getUsers, addUser } from '@/core/api.js'
 
 export default {
   data() {
